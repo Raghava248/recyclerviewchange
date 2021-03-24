@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class StaticRvAdapter extends RecyclerView.Adapter<StaticRvAdapter.StaticRVViewholder> {
 
     private ArrayList<StaticRvModel> items;
-    int row_index = -1;
+    int row_index = 0;
     UpdateRecyclerView updateRecyclerView;
     Activity activity;
     boolean check = true;
@@ -106,42 +106,15 @@ public class StaticRvAdapter extends RecyclerView.Adapter<StaticRvAdapter.Static
                         items.add(new DynamicRVModel("pizza 14",R.drawable.profile_pic));
 
                         updateRecyclerView.callback(position,items);
-                    }else if(position == 2){
-                        ArrayList<DynamicRVModel> items = new ArrayList<DynamicRVModel>();
-                        items.add(new DynamicRVModel("fries 1",R.drawable.profile_pic));
-                        items.add(new DynamicRVModel("fries 2",R.drawable.profile_pic));
-                        items.add(new DynamicRVModel("fries 3",R.drawable.profile_pic));
-                        items.add(new DynamicRVModel("fries 4",R.drawable.profile_pic));
-                        items.add(new DynamicRVModel("fries 5",R.drawable.profile_pic));
-                        items.add(new DynamicRVModel("fries 6",R.drawable.profile_pic));
-                        items.add(new DynamicRVModel("fries  7",R.drawable.profile_pic));
-                        items.add(new DynamicRVModel("fries  8",R.drawable.profile_pic));
-                        items.add(new DynamicRVModel("fries  9",R.drawable.profile_pic));
-                        items.add(new DynamicRVModel("fries  10",R.drawable.profile_pic));
-                        items.add(new DynamicRVModel("fries  11",R.drawable.profile_pic));
-                        items.add(new DynamicRVModel("fries  12",R.drawable.profile_pic));
-                        items.add(new DynamicRVModel("fries  13",R.drawable.profile_pic));
-                        items.add(new DynamicRVModel("fries  14",R.drawable.profile_pic));
-
-                        updateRecyclerView.callback(position,items);
                     }
                 }
             });
 
-            if(select){
-                if(position == 0){
-                    holder.linearLayout.setBackgroundResource(R.drawable.static_rv_selected_bg);
-                    select = false;
-                }else{
-
-                    if(row_index == position){
-                        holder.linearLayout.setBackgroundResource(R.drawable.static_rv_selected_bg);
-                    }else{
-                        holder.linearLayout.setBackgroundResource(R.drawable.static_rv_bg);
-                    }
-
-                }
-            }
+        if(row_index == position){
+            holder.linearLayout.setBackgroundResource(R.drawable.static_rv_selected_bg);
+        }else{
+            holder.linearLayout.setBackgroundResource(R.drawable.static_rv_bg);
+        }
 
 
     }
