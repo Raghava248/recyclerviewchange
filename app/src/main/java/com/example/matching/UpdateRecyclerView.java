@@ -4,5 +4,5 @@ import java.util.ArrayList;
 
 public interface UpdateRecyclerView {
 
-    void callback(int position, ArrayList<DynamicRVModel> items);
+    public void callback(StaticRvModel clickedItem);
 }
