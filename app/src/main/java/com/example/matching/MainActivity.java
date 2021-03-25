@@ -19,8 +19,9 @@ public class MainActivity extends AppCompatActivity implements UpdateRecyclerVie
     private RecyclerView recyclerView, recyclerView2;
     private StaticRvAdapter staticRvAdapter;
 
-    ArrayList<DynamicRVModel> items , items1 = new ArrayList();
+    ArrayList<DynamicRVModel> items , items1 ,items2 = new ArrayList();
     DynamicRVAdapter dynamicRVAdapter;
+    DynamicRVFemaleAdapter dynamicRVFemalAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,22 +37,21 @@ public class MainActivity extends AppCompatActivity implements UpdateRecyclerVie
         staticRvAdapter = new StaticRvAdapter(item, this,this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         recyclerView.setAdapter(staticRvAdapter);
-
         items = new ArrayList<>();
-        items1 = new ArrayList<>();
-        items.add(new DynamicRVModel("pizza 2",R.drawable.profile_pic));
-        items.add(new DynamicRVModel("pizza 3",R.drawable.profile_pic));
-        items.add(new DynamicRVModel("pizza 4",R.drawable.profile_pic));
-        items.add(new DynamicRVModel("pizza 5",R.drawable.profile_pic));
-        items.add(new DynamicRVModel("pizza 6",R.drawable.profile_pic));
-        items.add(new DynamicRVModel("pizza 7",R.drawable.profile_pic));
-        items.add(new DynamicRVModel("pizza 8",R.drawable.profile_pic));
-        items.add(new DynamicRVModel("pizza 9",R.drawable.profile_pic));
-        items.add(new DynamicRVModel("pizza 10",R.drawable.profile_pic));
-        items.add(new DynamicRVModel("pizza 11",R.drawable.profile_pic));
-        items.add(new DynamicRVModel("pizza 12",R.drawable.profile_pic));
-        items.add(new DynamicRVModel("pizza 13",R.drawable.profile_pic));
-        items.add(new DynamicRVModel("pizza 14",R.drawable.profile_pic));
+
+        items.add(new DynamicRVModel("Education Details"));
+        items.add(new DynamicRVModel("pizza 3"));
+        items.add(new DynamicRVModel("pizza 4"));
+        items.add(new DynamicRVModel("pizza 5"));
+        items.add(new DynamicRVModel("pizza 6"));
+        items.add(new DynamicRVModel("pizza 7"));
+        items.add(new DynamicRVModel("pizza 8"));
+        items.add(new DynamicRVModel("pizza 9"));
+        items.add(new DynamicRVModel("pizza 10"));
+        items.add(new DynamicRVModel("pizza 11"));
+        items.add(new DynamicRVModel("pizza 12"));
+        items.add(new DynamicRVModel("pizza 13"));
+        items.add(new DynamicRVModel("pizza 14"));
 
         recyclerView2 = findViewById(R.id.rv_2);
         dynamicRVAdapter = new DynamicRVAdapter(items);
@@ -62,47 +62,32 @@ public class MainActivity extends AppCompatActivity implements UpdateRecyclerVie
 
     @Override
     public void callback(StaticRvModel clickedItem) {
-        ArrayList<DynamicRVModel> items = new ArrayList<DynamicRVModel>();
+
         if(clickedItem.getText() == "male"){
-            items.add(new DynamicRVModel("pizza 1",R.drawable.profile_pic));
-                items.add(new DynamicRVModel("pizza 2",R.drawable.profile_pic));
-                items.add(new DynamicRVModel("pizza 3",R.drawable.profile_pic));
-                items.add(new DynamicRVModel("pizza 4",R.drawable.profile_pic));
-                items.add(new DynamicRVModel("pizza 5",R.drawable.profile_pic));
-                items.add(new DynamicRVModel("pizza 6",R.drawable.profile_pic));
-                items.add(new DynamicRVModel("pizza 7",R.drawable.profile_pic));
-                items.add(new DynamicRVModel("pizza 8",R.drawable.profile_pic));
-                items.add(new DynamicRVModel("pizza 9",R.drawable.profile_pic));
-                items.add(new DynamicRVModel("pizza 10",R.drawable.profile_pic));
-                items.add(new DynamicRVModel("pizza 11",R.drawable.profile_pic));
-                items.add(new DynamicRVModel("pizza 12",R.drawable.profile_pic));
-                items.add(new DynamicRVModel("pizza 13",R.drawable.profile_pic));
-                items.add(new DynamicRVModel("pizza 14",R.drawable.profile_pic));
                 dynamicRVAdapter = new DynamicRVAdapter(items);
                 dynamicRVAdapter.notifyDataSetChanged();
                 recyclerView2.setAdapter(dynamicRVAdapter);
             }else if(clickedItem.getText() == "female"){
-            items.add(new DynamicRVModel("burger 1",R.drawable.profile_pic));
-                items.add(new DynamicRVModel("burger 2",R.drawable.profile_pic));
-                items.add(new DynamicRVModel("burger 3",R.drawable.profile_pic));
-                items.add(new DynamicRVModel("burger 4",R.drawable.profile_pic));
-                items.add(new DynamicRVModel("burger 5",R.drawable.profile_pic));
-                items.add(new DynamicRVModel("burger 6",R.drawable.profile_pic));
-                items.add(new DynamicRVModel("burger 7",R.drawable.profile_pic));
-                items.add(new DynamicRVModel("burger 8",R.drawable.profile_pic));
-                items.add(new DynamicRVModel("burger 9",R.drawable.profile_pic));
-                items.add(new DynamicRVModel("burger 10",R.drawable.profile_pic));
-                items.add(new DynamicRVModel("burger 11",R.drawable.profile_pic));
-                items.add(new DynamicRVModel("burger 12",R.drawable.profile_pic));
-                items.add(new DynamicRVModel("burger 13",R.drawable.profile_pic));
-                items.add(new DynamicRVModel("burger 14",R.drawable.profile_pic));
-            dynamicRVAdapter = new DynamicRVAdapter(items);
-            dynamicRVAdapter.notifyDataSetChanged();
-            recyclerView2.setAdapter(dynamicRVAdapter);
+            items2.add(new DynamicRVModel("burger 1"));
+                items2.add(new DynamicRVModel("burger 2"));
+                items2.add(new DynamicRVModel("burger 3"));
+                items2.add(new DynamicRVModel("burger 4"));
+                items2.add(new DynamicRVModel("burger 5"));
+                items2.add(new DynamicRVModel("burger 6"));
+                items2.add(new DynamicRVModel("burger 7"));
+                items2.add(new DynamicRVModel("burger 8"));
+                items2.add(new DynamicRVModel("burger 9"));
+                items2.add(new DynamicRVModel("burger 10"));
+                items2.add(new DynamicRVModel("burger 11"));
+                items2.add(new DynamicRVModel("burger 12"));
+                items2.add(new DynamicRVModel("burger 13"));
+                items2.add(new DynamicRVModel("burger 14"));
+            dynamicRVFemalAdapter = new DynamicRVFemaleAdapter(items2);
+            dynamicRVFemalAdapter.notifyDataSetChanged();
+            recyclerView2.setAdapter(dynamicRVFemalAdapter);
             }else if(clickedItem.getText() == "results"){
-
-
-            items1.add(new DynamicRVModel("",R.drawable.blank));
+            items1 = new ArrayList<>();
+            items1.add(new DynamicRVModel(""));
             dynamicRVAdapter = new DynamicRVAdapter(items1);
             dynamicRVAdapter.notifyDataSetChanged();
             recyclerView2.setAdapter(dynamicRVAdapter);

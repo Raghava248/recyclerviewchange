@@ -4,9 +4,9 @@ public class DynamicRVModel {
 
     String name;
     private int image;
-    public DynamicRVModel(String name, int image){
+    public DynamicRVModel(String name){
         this.name = name;
-        this.image = image;
+
     }
 
     public String getName() {

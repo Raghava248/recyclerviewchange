@@ -43,24 +43,14 @@ public class StaticRvAdapter extends RecyclerView.Adapter<StaticRvAdapter.Static
             holder.textView.setText(currentItem.getText());
 
 
-            holder.linearLayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    row_index = position;
-                    notifyDataSetChanged();
-
-                    if(position == 0){
-
-                        updateRecyclerView.callback(currentItem);
-                    }else if(position == 1){
-
-
-                        updateRecyclerView.callback(currentItem);
-                    }else if(position == 2){
-                        updateRecyclerView.callback(currentItem);
-                    }
-                }
-            });
+        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                row_index = position;
+                notifyDataSetChanged();
+                updateRecyclerView.callback(currentItem);
+            }
+        });
 
         if(row_index == position){
             holder.linearLayout.setBackgroundResource(R.drawable.static_rv_selected_bg);

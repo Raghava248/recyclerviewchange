@@ -1,6 +1,5 @@
 package com.example.matching;
 
-
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -8,22 +7,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class DynamicRVAdapter extends RecyclerView.Adapter<DynamicRVAdapter.DynamicRvHolder>{
+public class DynamicRVFemaleAdapter extends RecyclerView.Adapter<DynamicRVFemaleAdapter.DynamicRvHolder>{
 
     public ArrayList<DynamicRVModel> dynamicRVModels;
     ArrayList<String> ExpAmtArray = new ArrayList<String>();
     boolean isOnTextChanged = false;
-    public DynamicRVAdapter(ArrayList<DynamicRVModel> dynamicRVModels){
+    public DynamicRVFemaleAdapter(ArrayList<DynamicRVModel> dynamicRVModels){
         this.dynamicRVModels = dynamicRVModels;
     }
 
@@ -44,14 +40,14 @@ public class DynamicRVAdapter extends RecyclerView.Adapter<DynamicRVAdapter.Dyna
 
     @NonNull
     @Override
-    public DynamicRVAdapter.DynamicRvHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public DynamicRVFemaleAdapter.DynamicRvHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.dynamic_rv_item_layout,parent,false);
         DynamicRvHolder dynamicRvHolder = new DynamicRvHolder(view);
         return dynamicRvHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DynamicRVAdapter.DynamicRvHolder holder, int position) {
+    public void onBindViewHolder(@NonNull DynamicRVFemaleAdapter.DynamicRvHolder holder, int position) {
             DynamicRVModel currentItem = dynamicRVModels.get(position);
 
             holder.textView.setText(currentItem.getName());
@@ -85,7 +81,7 @@ public class DynamicRVAdapter extends RecyclerView.Adapter<DynamicRVAdapter.Dyna
                                 ExpAmtArray.add("0");
                                 System.out.println(editText.getText().toString());
                                 ExpAmtArray.set(inposition1,editText.getText().toString());
-                                System.out.println("I am printing array male");
+                                System.out.println("I am printing array in female");
                                 System.out.println(ExpAmtArray);
                                 break;
                             }
@@ -120,5 +116,3 @@ public class DynamicRVAdapter extends RecyclerView.Adapter<DynamicRVAdapter.Dyna
 
 
 }
-
-
