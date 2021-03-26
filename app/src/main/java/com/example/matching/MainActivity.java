@@ -39,28 +39,28 @@ public class MainActivity extends AppCompatActivity implements UpdateRecyclerVie
         recyclerView.setAdapter(staticRvAdapter);
 
         items =  populateList();
-
-
-
-
-
         recyclerView2 = findViewById(R.id.rv_2);
         dynamicRVAdapter = new DynamicRVAdapter(items);
         recyclerView2.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false));
         recyclerView2.setAdapter(dynamicRVAdapter);
 
 
-        /*items1 = new ArrayList<>();
-        items1.add(new DynamicRVModel("burger 1"));
-        items1.add(new DynamicRVModel("burger 2"));
-        items1.add(new DynamicRVModel("burger 3"));
-        items1.add(new DynamicRVModel("burger 4"));
-        items1.add(new DynamicRVModel("burger 5"));
-
+        items1 = populateFemaleList();
 
         dynamicRVFemalAdapter = new DynamicRVFemaleAdapter(items1);
-        dynamicRVFemalAdapter.notifyDataSetChanged();*/
+        dynamicRVFemalAdapter.notifyDataSetChanged();
 
+    }
+
+    private ArrayList<DynamicRVModel> populateFemaleList() {
+        ArrayList<DynamicRVModel> female_list = new ArrayList<>();
+
+        for(int i = 0; i < 8; i++){
+            DynamicRVModel dynamicRVModel = new DynamicRVModel();
+            dynamicRVModel.setEditTextValue("");
+            female_list.add(dynamicRVModel);
+        }
+        return female_list;
     }
 
     private ArrayList<DynamicRVModel> populateList() {
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements UpdateRecyclerVie
         if(clickedItem.getText() == "male") {
             recyclerView2.setAdapter(dynamicRVAdapter);
         } else if(clickedItem.getText() == "female"){
-            /*recyclerView2.setAdapter(dynamicRVFemalAdapter);*/
+            recyclerView2.setAdapter(dynamicRVFemalAdapter);
         } else if(clickedItem.getText() == "results"){
             /*dynamicResultsRVAdapter.dynamicRVModels.clear();
             dynamicResultsRVAdapter.dynamicRVModels.addAll(dynamicRVAdapter.getSelectedItemsList());

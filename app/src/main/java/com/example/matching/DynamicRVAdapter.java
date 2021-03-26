@@ -21,8 +21,7 @@ import java.util.ArrayList;
 public class DynamicRVAdapter extends RecyclerView.Adapter<DynamicRVAdapter.DynamicRvHolder>{
 
     public ArrayList<DynamicRVModel> dynamicRVModels;
-    ArrayList<String> ExpAmtArray = new ArrayList<String>();
-    boolean isOnTextChanged = false;
+
     public DynamicRVAdapter(ArrayList<DynamicRVModel> dynamicRVModels){
         this.dynamicRVModels = dynamicRVModels;
     }
