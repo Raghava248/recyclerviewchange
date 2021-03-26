@@ -2,18 +2,21 @@ package com.example.matching;
 
 public class DynamicRVModel {
 
-    String name;
-    private int image;
-    public DynamicRVModel(String name){
+    private String editTextValue;
+    /*public DynamicRVModel(String name){
         this.name = name;
 
-    }
+    }*/
 
     public String getName() {
-        return name;
+        return "";
     }
 
-    public int getImage() {
-        return image;
+    public String getEditTextValue() {
+        return editTextValue;
+    }
+    public void setEditTextValue(String editTextValue) {
+            this.editTextValue = editTextValue;
+
     }
 }

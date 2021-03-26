@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements UpdateRecyclerVie
     private RecyclerView recyclerView, recyclerView2;
     private StaticRvAdapter staticRvAdapter;
 
-    ArrayList<DynamicRVModel> items , items1 ;
+    public ArrayList<DynamicRVModel> items , items1 ;
     DynamicRVAdapter dynamicRVAdapter;
     DynamicRVFemaleAdapter dynamicRVFemalAdapter;
 
@@ -38,44 +38,40 @@ public class MainActivity extends AppCompatActivity implements UpdateRecyclerVie
         recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         recyclerView.setAdapter(staticRvAdapter);
 
-        items = new ArrayList<>();
-        items.add(new DynamicRVModel("Education Details"));
-        items.add(new DynamicRVModel("pizza 3"));
-        items.add(new DynamicRVModel("pizza 4"));
-        items.add(new DynamicRVModel("pizza 5"));
-        items.add(new DynamicRVModel("pizza 6"));
-        items.add(new DynamicRVModel("pizza 7"));
-        items.add(new DynamicRVModel("pizza 8"));
-        items.add(new DynamicRVModel("pizza 9"));
-        items.add(new DynamicRVModel("pizza 10"));
-        items.add(new DynamicRVModel("pizza 11"));
-        items.add(new DynamicRVModel("pizza 12"));
-        items.add(new DynamicRVModel("pizza 13"));
-        items.add(new DynamicRVModel("pizza 14"));
+        items =  populateList();
+
+
+
+
 
         recyclerView2 = findViewById(R.id.rv_2);
         dynamicRVAdapter = new DynamicRVAdapter(items);
         recyclerView2.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false));
         recyclerView2.setAdapter(dynamicRVAdapter);
 
-        items1 = new ArrayList<>();
+
+        /*items1 = new ArrayList<>();
         items1.add(new DynamicRVModel("burger 1"));
         items1.add(new DynamicRVModel("burger 2"));
         items1.add(new DynamicRVModel("burger 3"));
         items1.add(new DynamicRVModel("burger 4"));
         items1.add(new DynamicRVModel("burger 5"));
-        items1.add(new DynamicRVModel("burger 6"));
-        items1.add(new DynamicRVModel("burger 7"));
-        items1.add(new DynamicRVModel("burger 8"));
-        items1.add(new DynamicRVModel("burger 9"));
-        items1.add(new DynamicRVModel("burger 10"));
-        items1.add(new DynamicRVModel("burger 11"));
-        items1.add(new DynamicRVModel("burger 12"));
-        items1.add(new DynamicRVModel("burger 13"));
-        items1.add(new DynamicRVModel("burger 14"));
-        dynamicRVFemalAdapter = new DynamicRVFemaleAdapter(items1);
-        dynamicRVFemalAdapter.notifyDataSetChanged();
 
+
+        dynamicRVFemalAdapter = new DynamicRVFemaleAdapter(items1);
+        dynamicRVFemalAdapter.notifyDataSetChanged();*/
+
+    }
+
+    private ArrayList<DynamicRVModel> populateList() {
+        ArrayList<DynamicRVModel> list =new ArrayList<>();
+
+        for(int i = 0; i < 8; i++){
+                DynamicRVModel dynamicRVModel = new DynamicRVModel();
+                dynamicRVModel.setEditTextValue("");
+                list.add(dynamicRVModel);
+        }
+        return list;
     }
 
     @Override
@@ -84,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements UpdateRecyclerVie
         if(clickedItem.getText() == "male") {
             recyclerView2.setAdapter(dynamicRVAdapter);
         } else if(clickedItem.getText() == "female"){
-            recyclerView2.setAdapter(dynamicRVFemalAdapter);
+            /*recyclerView2.setAdapter(dynamicRVFemalAdapter);*/
         } else if(clickedItem.getText() == "results"){
             /*dynamicResultsRVAdapter.dynamicRVModels.clear();
             dynamicResultsRVAdapter.dynamicRVModels.addAll(dynamicRVAdapter.getSelectedItemsList());
