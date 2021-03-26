@@ -2,7 +2,6 @@ package com.example.matching;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,8 +57,7 @@ public class DynamicRVFemaleAdapter extends RecyclerView.Adapter<DynamicRVFemale
     @Override
     public DynamicRVFemaleAdapter.DynamicRvHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.dynamic_rv_item_layout,parent,false);
-        DynamicRvHolder dynamicRvHolder = new DynamicRvHolder(view);
-        return dynamicRvHolder;
+        return new DynamicRvHolder(view);
     }
 
     @Override

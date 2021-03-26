@@ -4,20 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.os.Handler;
-import android.widget.Toast;
 
-import java.lang.reflect.Array;
+import android.os.Bundle;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+
 
 public class MainActivity extends AppCompatActivity implements UpdateRecyclerView {
 
-    private RecyclerView recyclerView, recyclerView2;
-    private StaticRvAdapter staticRvAdapter;
+    private RecyclerView recyclerView2;
 
     public ArrayList<DynamicRVModel> items , items1 ;
     DynamicRVAdapter dynamicRVAdapter;
@@ -33,8 +27,8 @@ public class MainActivity extends AppCompatActivity implements UpdateRecyclerVie
         item.add(new StaticRvModel(R.drawable.female,"female"));
         item.add(new StaticRvModel(R.drawable.results,"results"));
 
-        recyclerView = findViewById(R.id.rv_1);
-        staticRvAdapter = new StaticRvAdapter(item, this,this);
+        RecyclerView recyclerView = findViewById(R.id.rv_1);
+        StaticRvAdapter staticRvAdapter = new StaticRvAdapter(item, this, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         recyclerView.setAdapter(staticRvAdapter);
 
@@ -77,15 +71,19 @@ public class MainActivity extends AppCompatActivity implements UpdateRecyclerVie
     @Override
     public void callback(StaticRvModel clickedItem) {
 
-        if(clickedItem.getText() == "male") {
-            recyclerView2.setAdapter(dynamicRVAdapter);
-        } else if(clickedItem.getText() == "female"){
-            recyclerView2.setAdapter(dynamicRVFemalAdapter);
-        } else if(clickedItem.getText() == "results"){
+        switch (clickedItem.getText()) {
+            case "male":
+                recyclerView2.setAdapter(dynamicRVAdapter);
+                break;
+            case "female":
+                recyclerView2.setAdapter(dynamicRVFemalAdapter);
+                break;
+            case "results":
             /*dynamicResultsRVAdapter.dynamicRVModels.clear();
             dynamicResultsRVAdapter.dynamicRVModels.addAll(dynamicRVAdapter.getSelectedItemsList());
             dynamicResultsRVAdapter.dynamicRVModels.addAll(dynamicRVAdapter.getSelectedItemsList());
             recyclerView2.setAdapter(dynamicResultsRVAdapter);*/
+                break;
         }
 
     }
